@@ -1,0 +1,22 @@
+{
+  "name": "kdm",
+  "version": "0.1.0",
+  "description": "kingdom death campaign manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Weidmann <weidmann.manuel@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.3.5",
+    "boom": "^3.1.2",
+    "hapi": "^13.3.0",
+    "hapi-bunyan": "^0.6.0",
+    "hapi-swagger": "^5.0.1",
+    "inert": "^3.2.0",
+    "lokijs": "^1.3.16",
+    "mithril": "^0.2.4",
+    "vision": "^4.1.0"
+  }
+}

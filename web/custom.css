@@ -1,0 +1,29 @@
+.container {
+  max-width: 800px; }
+.gear-grid .column.gear-grid-slot,
+.gear-grid .columns.gear-grid-slot {
+  background: #EEE;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  height: 90px;
+  width: 90px;
+  line-height: 30px;
+  margin: .45rem;
+  font-weight: 600;
+  letter-spacing: .1rem; }
+
+.storage .columns.storage-slot {
+  background: #EEE;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  height: 450px;
+  width: 450px;
+  line-height: 30px;
+  margin: .45rem;
+  font-weight: 600;
+  letter-spacing: .1rem; }
+
