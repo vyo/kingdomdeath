@@ -39,7 +39,7 @@ const initServer = () => {
 
   })
   .then( () => {
-    Server.route({
+    return Server.route({
       method: 'GET',
       path: '/{param*}',
       handler: {
@@ -48,7 +48,16 @@ const initServer = () => {
           listing: false
         }
       }
-    });
+    })
+  })
+  .then( () => {
+    return Server.route({
+      method: 'GET',
+      path: '/',
+      handler: (request, reply) => {
+        reply().redirect('/gear-grid.html');
+      }
+    })
   })
   .then( () => {
     return Server;
