@@ -9,7 +9,7 @@ const Promise = require('bluebird');
 
 const Server = new Hapi.Server();
 Server.connection( {
-  port: 8000
+  port: process.env['PORT'] || 8000
 });
 
 
