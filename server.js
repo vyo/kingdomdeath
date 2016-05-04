@@ -2,13 +2,14 @@
 
 const Promise = require('bluebird');
 
+const Bunyan = require('bunyan');
+
 const Hapi = require('hapi');
-const Inert = require('inert');
-const Vision = require('vision');
 
 const Loki = require('lokijs');
 const DB = new Loki('kingdomdeath.db');
 
+const Log = Bunyan.createLogger({ name: 'kingdomdeath', level: process.env['LOG_LEVEL'] || 'debug' });
 
 const Server = new Hapi.Server();
 Server.connection( {
@@ -28,21 +29,31 @@ const Start = () => {
   return PleaseStart.call(Server);
 };
 
+//plugins
+const Inert = require('inert');
+const Vision = require('vision');
+const HapiBunyan = {
+  register: require('hapi-bunyan'),
+  options: {
+    logger: Log
+  }
+};
 
+// routes
 const Web = require('./route/web');
 
 
 // fire it up
 () => {
-  return Register( [Inert, Vision] )
+  return Register( [Inert, Vision, HapiBunyan] )
     .then( Route(Web) )
     .then( Start() )
     .then( () => {
-      console.log('Running at ' + Server.info.uri)
+      Server.log('info', 'Running at ' + Server.info.uri)
       return Server;
     })
     .catch( (err) => {
-      console.log(err)
+      Server.log('error', err);
     });
 }();
 
