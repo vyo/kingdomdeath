@@ -66,6 +66,7 @@ interact('.draggable')
     target.setAttribute('data-y', y);
 
     event.target.style.zIndex = "100";
+    event.target.classList.add('drop-shadow');
     event.target.style.position = 'relative';
   }
 
@@ -75,7 +76,7 @@ interact('.draggable')
 // enable draggables to be dropped into this
 interact('.dropzone').dropzone({
   // only accept elements matching this CSS selector
-  accept: '.gear-card',
+  accept: '.gear',
   // Require a 75% element overlap for a drop to be possible
   // overlap: 0.05,
   overlap: 'center',
@@ -116,6 +117,7 @@ interact('.dropzone').dropzone({
     // remove the drop feedback style
     event.target.classList.remove('drop-target');
     event.relatedTarget.classList.remove('can-drop');
+    event.relatedTarget.classList.remove('drop-shadow');
     // event.relatedTarget.textContent = 'Dragged out';
 
     // event.draggable.snap(false);
@@ -127,10 +129,12 @@ interact('.dropzone').dropzone({
   },
   ondrop: function (event) {
     // event.relatedTarget.textContent = 'Dropped';
+    event.relatedTarget.classList.remove('drop-shadow');
   },
   ondropdeactivate: function (event) {
     // remove active dropzone feedback
     event.target.classList.remove('drop-active');
     event.target.classList.remove('drop-target');
+    event.relatedTarget.classList.remove('drop-shadow');
   }
 });

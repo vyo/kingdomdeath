@@ -1,10 +1,16 @@
-/* #outer-dropzone { */
-/*   height: 140px; */
-/* } */
+.gear {
+  height: 90px;
+  width: 90px;
 
-/* #inner-dropzone { */
-/*   height: 80px; */
-/* } */
+  background-size: 100% 100%;
+  background-position: center center;
+
+  border-radius: 12px;
+}
+
+.cloth {
+  background-image: url(assets/gear/startinggear/startinggear.png00.jpg);
+}
 
 .dropzone {
   background-color: #ccc;
@@ -28,8 +34,8 @@
 
 .drag-drop {
   display: inline-block;
-  min-width: 40px;
-  padding: 2em 0.5em;
+  min-width: 60px;
+  /* padding: 2em 0.5em; */
 
   color: #fff;
   background-color: #29e;
@@ -46,50 +52,6 @@
   background-color: #4e4;
 }
 
-/* #outer-dropzone { */
-/*   height: 140px; */
-/* } */
-
-/* #inner-dropzone { */
-/*   height: 80px; */
-/* } */
-
-.dropzone {
-  background-color: #ccc;
-  border: dashed 4px transparent;
-  border-radius: 4px;
-  margin: 10px auto 30px;
-  padding: 10px;
-  /* width: 80%; */
-  transition: background-color 0.3s;
-}
-
-.drop-active {
-  border-color: #aaa;
-}
-
-.drop-target {
-  background-color: #29e;
-  border-color: #fff;
-  border-style: solid;
-}
-
-.drag-drop {
-  display: inline-block;
-  min-width: 40px;
-  padding: 2em 0.5em;
-
-  color: #fff;
-  background-color: #29e;
-  border: solid 2px #fff;
-
-  -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
-
-  transition: background-color 0.3s;
-}
-
-.drag-drop.can-drop {
-  color: #000;
-  background-color: #4e4;
+.drop-shadow {
+  box-shadow: 10px 10px 5px #888888;
 }
