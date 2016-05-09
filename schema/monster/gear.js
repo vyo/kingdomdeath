@@ -23,7 +23,7 @@ const Modifier = Joi.object().keys({
 const Ability = Joi.object().keys({
   id: Joi.string().required(),
   name: Joi.string().required(),
-  text: Joi.string().required(),
+  description: Joi.string().required(),
   modifiers: Joi.array().items(),
   activation: Activation.required(),
   affinitiesRequired: Joi.array().items(Joi.object().keys({
@@ -37,7 +37,7 @@ const Gear = Joi.object().keys({
   id: Joi.string().required(),
   name: Joi.string().required(),
   tags: Joi.array().items(Joi.string()).unique().required(),
-  text: Joi.string().required(),
+  description: Joi.string().required(),
   crafting: Crafting,
   affinities: Joi.object().keys({
     top: Affinity.optional(),
