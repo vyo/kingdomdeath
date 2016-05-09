@@ -1,5 +1,7 @@
 'use strict';
 
+const Package = require('./package');
+
 const Promise = require('bluebird');
 
 const Bunyan = require('bunyan');
@@ -32,6 +34,15 @@ const Start = () => {
 //plugins
 const Inert = require('inert');
 const Vision = require('vision');
+const HapiSwagger = {
+  register: require('hapi-swagger'),
+  options: {
+    info: {
+      title: 'Kingdom Death: Scribe',
+      version: Package.version
+    }
+  }
+};
 const HapiBunyan = {
   register: require('hapi-bunyan'),
   options: {
@@ -45,7 +56,7 @@ const Web = require('./route/web');
 
 // fire it up
 () => {
-  return Register( [Inert, Vision, HapiBunyan] )
+  return Register( [Inert, Vision, HapiSwagger, HapiBunyan] )
     .then( Route(Web) )
     .then( Start() )
     .then( () => {
