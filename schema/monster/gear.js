@@ -4,7 +4,7 @@ const Joi = require('joi');
 
 
 const Crafting = Joi.object().keys({
-  crafter: Joi.string().optional(),
+  crafterId: Joi.string().optional(),
   resources: Joi.array().items(Joi.object().keys({
     id: Joi.string().required(),
     amount: Joi.number().integer().required()

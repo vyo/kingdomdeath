@@ -1,6 +1,6 @@
 {
   "name": "kdm",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "kingdom death campaign manager",
   "main": "server.js",
   "scripts": {
