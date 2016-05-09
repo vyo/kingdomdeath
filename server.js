@@ -17,6 +17,14 @@ const Server = new Hapi.Server();
 Server.connection( {
   port: process.env['PORT'] || 8000
 });
+Server.method('path.base', () => {
+    return __dirname;
+  }
+);
+Server.method('path.schema', (schema) => {
+    return __dirname + '/schema/' + schema;
+  }
+);
 
 const PleaseRegister = Promise.promisify(Server.register);
 const PleaseStart = Promise.promisify(Server.start);
@@ -52,12 +60,13 @@ const HapiBunyan = {
 
 // routes
 const Web = require('./route/web');
-
+const Gear = require('./route/monster/gear');
 
 // fire it up
 () => {
   return Register( [Inert, Vision, HapiSwagger, HapiBunyan] )
     .then( Route(Web) )
+    .then( Route(Gear) )
     .then( Start() )
     .then( () => {
       Server.log('info', 'Running at ' + Server.info.uri)
