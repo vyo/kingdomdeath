@@ -31,7 +31,7 @@ module.exports = (server) => {
         reply();
       },
       validate: {
-        payload: Gear
+        payload: Joi.array().items(Gear).sparse().single().label('Gear Items').required()
       }
     }
   });
