@@ -1,5 +1,6 @@
 'use strict';
 
+// serve web content
 module.exports = (server) => {
 
   server.route({
